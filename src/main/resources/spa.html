@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bella's Beauty Bar & Spa</title>
+    <link rel="stylesheet" type="="text/css"> th:href="@{/main.css" /}
+</head>
+<body>
+
+
+<h1>Bella's Beauty Bar & Spa</h1>
+
+<div th:if="${entries.isEmpty()}">
+    <p>Sorry, no treatments available.</p>
+</div>
+
+<div th:if="${!entries.isEmpty()}">
+    <table>
+        <tr>
+            <th>Name</th><th>Treatment</th><th></th><th></th>
+        </tr>
+        <tr th:each="entry: ${entries}">
+            <td th:text="${entry.name}"></td>
+            <td th:text="${entry.treatment}"></td>
+            <td><a th:href="@{'/delete/' + ${entry.id}}">Delete</a></td>
+            <td><a th:href="@{'/update/' + ${entry.id}}">Update</a></td>
+        </tr>
+    </table>
+</div>
+
+<h2 th:text="${formHeader}"></h2>
+
+<form th:object="${newEntry}" method="post">
+    <label>Name: </label>
+    <input type="text" size="32" th:field="*{name}" />
+    <label>Treatment: </label>
+    <input type="text" size="64" th:field="*{treatment}" />
+
+    <input type="submit" value="Submit" />
+    <input type="reset" value="Reset" />
+    <p class="warning" th:if="${#fields.hasErrors('name')}">Please enter a name.</p>
+    <p class="warning" th:if="${#fields.hasErrors('treatment')}">Please input a treatment.</p>
+</form>
+
+</body>
+</html>

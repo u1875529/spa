@@ -1,0 +1,41 @@
+body {
+    background-color: lightgreen;
+    font-family: "Lucida Handwriting";
+}
+
+table {
+    border: 3px black;
+    border-radius: 7px;
+}
+
+th {
+    font-size: 130%;
+    text-align: left;
+    background-color:white;
+    padding: 10px;
+}
+
+td {
+    text-align: left;
+    background-color: azure;
+    padding: 4px;
+}
+
+a, a:visited {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+a:hover {
+    color: mediumspringgreen;
+}
+
+.warning {
+    color: red;
+    background-color: blue;
+    display: inline;
+    padding: 8px;
+    border: 2px yellow;
+    border-radius: 5px;
+}
